@@ -1,73 +1,225 @@
-# React + TypeScript + Vite
+# FindYourPalette
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Developed By
 
-Currently, two official plugins are available:
+**Aditya Yadav**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+# Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+FindYourPalette is a modern web application built using **React, TypeScript, and Vite** that helps users generate aesthetically pleasing color palettes using color harmony principles. The application also allows users to extract dominant colors from images, save palettes locally, switch between light and dark themes, and export palettes for use in design and development projects.
 
-## Expanding the ESLint configuration
+The project follows a modular component-based architecture and demonstrates the practical use of React Hooks, state management, local storage, and browser APIs.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Interactive color wheel for selecting a base color
+- Automatic palette generation using multiple harmony algorithms
+- Support for Complementary, Analogous, Triadic, Tetradic, Split Complementary, and Monochromatic palettes
+- Image upload with automatic palette extraction
+- Save palettes using browser local storage
+- View and reload previously saved palettes
+- Dark and Light theme support
+- Copy generated palettes as CSS variables
+- Download palettes in JSON format
+- Display HEX, RGB, and HSL values for selected colors
+- Responsive and modern user interface
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+# Technologies Used
+
+- React
+- TypeScript
+- Vite
+- HTML5
+- CSS3
+- Local Storage API
+- Canvas API
+- Lucide React
+
+---
+
+# Folder Structure
+
+```text
+src/
+│
+├── components/
+│   ├── ColorWheel.tsx
+│   ├── ColorInfo.tsx
+│   ├── PalettePreview.tsx
+│   ├── ImageUploader.tsx
+│   ├── SavedPalettes.tsx
+│   └── ExportPanel.tsx
+│
+├── utils/
+│   └── harmony.ts
+│
+├── App.tsx
+├── main.tsx
+└── index.css
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Key Functionalities
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Color Wheel
+
+Users can choose a base color using an interactive color wheel. The selected color updates instantly and serves as the foundation for palette generation.
+
+## Harmony Generation
+
+The application generates palettes based on common color harmony techniques including:
+
+- Complementary
+- Analogous
+- Triadic
+- Tetradic
+- Split Complementary
+- Monochromatic
+
+Users can switch between harmony types through a dropdown menu.
+
+## Image Palette Extraction
+
+Users can upload an image and automatically extract dominant colors from it. The extracted palette replaces the generated palette until cleared.
+
+## Color Information
+
+The selected color is displayed with:
+
+- HEX value
+- RGB value
+- HSL value
+
+This helps users understand and reuse colors in different formats.
+
+## Palette Preview
+
+Generated colors are displayed as individual swatches along with their hexadecimal values for easy visualization.
+
+## Saved Palettes
+
+Users can save generated palettes locally and reload them later from the saved palettes menu. Duplicate palettes are automatically prevented.
+
+## Theme Switching
+
+The application supports both Dark Mode and Light Mode. The selected theme is stored locally and restored automatically when the application is reopened.
+
+## Export Options
+
+Users can:
+
+- Copy palettes as CSS variables
+- Download palettes as JSON files
+
+These exports make it easy to integrate generated palettes into development projects.
+
+---
+
+# React Concepts Used
+
+- Functional Components
+- useState
+- useEffect
+- useMemo
+- useRef
+- Event Handling
+- Controlled Components
+- Conditional Rendering
+- Component Composition
+- Local Storage Integration
+- Browser Canvas API
+- File Upload Handling
+
+---
+
+# Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
 ```
+
+Navigate to the project directory:
+
+```bash
+cd FindYourPalette
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+---
+
+# Suggested GitHub Screenshots
+
+Include screenshots of the following:
+
+1. Home page with the color wheel
+2. Generated color palette
+3. Dark theme interface
+4. Light theme interface
+5. Image upload and extracted palette
+6. Saved palettes panel
+7. Color information section
+8. Export functionality
+
+---
+
+# Learning Outcomes
+
+This project demonstrates practical implementation of:
+
+- React component architecture
+- TypeScript integration
+- State management with React Hooks
+- Browser local storage
+- Canvas-based image processing
+- Dynamic rendering
+- File handling
+- Data export
+- Responsive UI design
+
+---
+
+# Future Improvements
+
+- Direct Figma integration
+- Adobe Color export
+- AI-powered palette recommendations
+- Cloud synchronization
+- User authentication
+- Accessibility and contrast analysis
+- Palette sharing through links
+- Drag-and-drop image uploads
+
+---
+
+# Author
+
+**Aditya Yadav**
+
+B.Tech Computer Science Engineering  
+ITM Skills University, Kharghar
+
+---
+
+# License
+
+This project was created for educational and learning purposes. It may be modified and extended for personal, academic, or non-commercial use.
